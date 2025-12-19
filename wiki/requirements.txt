@@ -4,3 +4,4 @@ openpyxl
 mkdocs-material[imaging]
 mkdocs-git-revision-date-localized-plugin
 mkdocs-material
+mkdocs

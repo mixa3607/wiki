@@ -24,6 +24,8 @@ theme:
   language: en
   icon:
     logo: 'material/cog-box'
+  #favicon: cog-box.png
+  custom_dir: overrides
   palette: 
     # Palette toggle for light mode
     - scheme: default

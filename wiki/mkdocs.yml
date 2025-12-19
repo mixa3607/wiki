@@ -1,0 +1,66 @@
+site_name: KBD
+site_url: https://mixa3607.github.io/mixa3607/
+
+repo_url: https://github.com/mixa3607/mixa3607
+edit_uri: edit/master/wiki/docs/
+
+use_directory_urls: true
+plugins:
+  - search:
+      lang: 
+       - en
+       - ru
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - social
+  - tags
+  - table-reader
+  - awesome-nav
+
+extra_css: [custom.css]
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: 'material/cog-box'
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.footer
+    - navigation.instant
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+
+extra: {}
+markdown_extensions:
+  - abbr
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - def_list
+  - pymdownx.tasklist
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js

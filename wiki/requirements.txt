@@ -1,0 +1,6 @@
+mkdocs-awesome-nav
+mkdocs-table-reader-plugin
+openpyxl
+mkdocs-material[imaging]
+mkdocs-git-revision-date-localized-plugin
+mkdocs-material

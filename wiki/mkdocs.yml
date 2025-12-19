@@ -1,7 +1,7 @@
 site_name: KBD
-site_url: https://mixa3607.github.io/mixa3607/
+site_url: https://mixa3607.github.io/wiki
 
-repo_url: https://github.com/mixa3607/mixa3607
+repo_url: https://github.com/mixa3607/wiki
 edit_uri: edit/master/wiki/docs/
 
 use_directory_urls: true

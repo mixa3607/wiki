@@ -53,16 +53,17 @@ extra: {}
 markdown_extensions:
   - abbr
   - admonition
+  - tables
+  - def_list
   - toc:
       permalink: true
-  - tables
   - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.tasklist
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - def_list
-  - pymdownx.tasklist
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js

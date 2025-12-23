@@ -3,7 +3,7 @@
 
 ![board](./image.png)
 
-В общем и целом борда по железу ОК, без проблем тянет QWAT'ы на 270 ватт, но биос и бмц просто караул, шаром покати, даже выбьора частоты озу нет.
+В общем и целом борда по железу ОК, без проблем тянет QWAT'ы на 270 ватт, но биос и бмц просто караул, шаром покати, даже выбора частоты озу нет (upd. см. мод биос).
 
 ## Docs
 - [Release info](./imb760.pdf)
@@ -38,6 +38,29 @@
     - A: Бывает, используйте [intel mlc](../Tools/index.md#intel-mlc)
 - Q: UEFI не видит csm boot devices?
     - A: Завести не удалось
+
+## BMC / BIOS
+Дампы снятые прищепкой:
+
+| Type | Name | User | BIN      | Info |
+| ---- | ---- | ---- | -------- | ---- |
+| BIOS | mod A1 RC1 | mixa3607  | [github: mixa3607/ami-patching-infra](https://github.com/mixa3607/ami-patching-infra/releases)  | based on `stock-2`    |
+| BIOS | stock-1    | mixa3607  | [AMIBCP log + dump](./bios/IMB760_BIOS_mixa3607_stock-1.tgz)                | many boots => dump    |
+| BIOS | stock-2    | mixa3607  | [AMIBCP log + dump](./bios/IMB760_BIOS_mixa3607_stock-2.tgz)                | reset => save => dump |
+| BIOS | stock-1    | EvILLIDAN | [AMIBCP log + dump](./bios/IMB760_BIOS_EvILLIDAN_stock-1.tgz)               |                       |
+| BMC  | stock-1    | EvILLIDAN | [dump](./bmc/IMB760_BMC_EvILLIDAN_stock-1.tgz)                              |                       |
+
+BIOS свободно открывается через AMIBCP ([tools](../../Tools/index.md#amibcp)) и UEFITool ([tools](../../Tools/index.md#uefitool))
+
+### Подробнее про мод биос и прошивку
+Программно вытащить прошивки из флешек не удалось. На данный момент не известно ни одной прошивки которая бы прошилась через бмц.
+
+Микросхема памяти биоса рядом с мостом, память бмц рядом с ast2500. Что бы прочитать/зашить чипы достаточно прищепки и обесточить плату, выпаивать не нужно.
+
+!!! danger "CH341"
+    Им можно шить, но проверьте что он у вас либо с завода на 3,3в, либо что вы его переделали. Мануалы есть в интернете к примеру [https://wiki.chucknemeth.com/usb-devices/ch341a/3v-ch341a-mod](https://wiki.chucknemeth.com/usb-devices/ch341a/3v-ch341a-mod)
+
+Пока есть много неизвестных моментов что работает, а что нет, вэлкам ту PR на [github: mixa3607/ami-patching-infra](https://github.com/mixa3607/ami-patching-infra?tab=readme-ov-file#%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81-%D0%BF%D0%BE-%D0%BC%D0%B5%D0%BD%D1%8E)
 
 ## Sensors
 ### All sensors
@@ -260,17 +283,3 @@ FAN8             | 0.000      | RPM        | nr    | 0.000     | 0.000     | 0.0
 ```
 
 Как заставить материнку считать 0 оборотов нормой не нашёл, они всегда вываливаются в `non rec` mode
-
-## BMC / BIOS
-Программно вытащить прошивки из флешек не удалось.
-
-Дампы снятые прищепкой:
-
-| Type | Name | User | BIN      | Info |
-| ---- | ---- | ---- | -------- | ---- |
-| BIOS | stock-1 | mixa3607  | [log+dump](./bios/IMB760_BIOS_mixa3607_stock-1.tgz)  | many boots => dump    |
-| BIOS | stock-2 | mixa3607  | [log+dump](./bios/IMB760_BIOS_mixa3607_stock-2.tgz)  | reset => save => dump |
-| BIOS | stock-1 | EvILLIDAN | [log+dump](./bios/IMB760_BIOS_EvILLIDAN_stock-1.tgz) |                       |
-| BMC  | stock-1 | EvILLIDAN | [dump](./bmc/IMB760_BMC_EvILLIDAN_stock-1.tgz)       |                       |
-
-BIOS свободно открывается через AMIBCP ([tools](../../Tools/index.md#amibcp)) и UEFITool ([tools](../../Tools/index.md#uefitool))
